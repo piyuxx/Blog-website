@@ -6,6 +6,7 @@ console.log(process.env.FIREBASE_API_KEY, "key")
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
 const firebaseConfig = {
     apiKey: apikey,
     authDomain: "ecommerce-estate.firebaseapp.com",

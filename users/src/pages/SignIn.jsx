@@ -6,7 +6,7 @@ import OAuth from '../components/OAuth';
 
 export default function SignUp() {
   const [formData, setFormData] = useState({});
-const {loading,error} = useSelector((state)=>state.user)
+  const { loading, error } = useSelector((state) => state.user)
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleChange = (e) => {
@@ -18,7 +18,7 @@ const {loading,error} = useSelector((state)=>state.user)
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-    dispatch(signInStart())
+      dispatch(signInStart())
       const res = await fetch('/api/auth/signin', {
         method: 'POST',
         headers: {
@@ -29,10 +29,10 @@ const {loading,error} = useSelector((state)=>state.user)
       const data = await res.json();
       console.log(data);
       if (data.success === false) {
-       dispatch(signInFailure(data.message))
+        dispatch(signInFailure(data.message))
         return;
       }
-    dispatch(signInSuccess(data));
+      dispatch(signInSuccess(data));
       navigate('/');
     } catch (error) {
       dispatch(signInFailure(error.message));
@@ -43,7 +43,7 @@ const {loading,error} = useSelector((state)=>state.user)
     <div className='p-3 max-w-lg mx-auto'>
       <h1 className='text-3xl text-center font-semibold my-7'>Sign In</h1>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
-        
+
         <input
           type='email'
           placeholder='email'
@@ -65,7 +65,7 @@ const {loading,error} = useSelector((state)=>state.user)
         >
           {loading ? 'Loading...' : 'Sign Up'}
         </button>
-        <OAuth/>
+        <OAuth />
       </form>
       <div className='flex gap-2 mt-5'>
         <p>Don't Have an account?</p>
