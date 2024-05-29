@@ -61,7 +61,6 @@ export const getListings = async (req, res, next) => {
     try {
         const limit = parseInt(req.query.limit) || 9;
         const startIndex = parseInt(req.query.startIndex) || 0;
-        const length = Listing.length
 
         // let offer = req.query.offer
         // if (offer === undefined || offer === 'false') {
